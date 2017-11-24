@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - "node"
+env:
+  global:
+    - HUB_VERSION: 2.2.9
+    - PATH: ~/bin/${HUB_VERSION}:$PATH
 deploy:
   - skip_cleanup: true
     provider: script
@@ -13,3 +17,14 @@ deploy:
     on:
       all_branches: true
       condition: '"$TRAVIS_BRANCH" != "master" && "$TRAVIS_BRANCH" != "gh-pages"'
+  - skip_cleanup: true
+    provider: script
+    script: command/hub_setup.sh
+    on:
+      branch: master
+  - skip_cleanup: true
+    provider: script
+    script:
+      - command/pull-request.sh
+    on:
+      branch: master
