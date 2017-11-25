@@ -16,4 +16,4 @@ jobs:
       - run: git remote set-url origin https://github.com/kgmyshin/swagger-auto-server-sample.git
       - run: npm run deploy
       - run: npm run deploy-branch
-      - run: ./script/pr-for-client-if-needed.sh
+      - run: ./scripts/pr-for-client-if-needed.sh
