@@ -8,7 +8,7 @@ git clone git@github.com:kgmyshin/swagger-auto-android-sample.git
 cd swagger-auto-android-sample
 
 #差分チェック TODO: パスを正しく
-wget https://kgmyshin.github.io/swagger-auto-server-sample/swagger.json newest.json
+wget https://kgmyshin.github.io/swagger-auto-server-sample/swagger.json swagger.json
 DIFF_COUNT=$(diff newest.json swagger.json | wc -l)
 echo $DIFF_COUNT
 if [ $DIFF_COUNT -eq 0 ]; then
