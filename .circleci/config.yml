@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/swagger-auto-server-sample
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: git remote set-url origin https://github.com/kgmyshin/swagger-auto-server-sample.git
+      - run: npm run deploy
+      - run: npm run deploy-branch
+      - run: ./script/pr-for-client-if-needed.sh
