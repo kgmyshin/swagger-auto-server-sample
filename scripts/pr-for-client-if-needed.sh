@@ -33,6 +33,7 @@ git checkout -b pojo_update_$HASH
 ./gradlew app:updateJson
 
 # commit, push and pull-request
+cd app
 git add .
 git commit -m "update pojo"
 git push origin pojo_update_$HASH
