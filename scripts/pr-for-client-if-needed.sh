@@ -14,7 +14,7 @@ echo $DIFF_COUNT
 if [ $DIFF_COUNT -eq 0 ]; then
   exit 0
 fi
-rm newst.json
+rm swagger.json
 
 # HUBコマンドセットアップ
 export HUB_VERSION=2.2.9

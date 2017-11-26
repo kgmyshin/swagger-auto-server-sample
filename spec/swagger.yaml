@@ -102,11 +102,6 @@ paths:
         type: "array"
         items:
           type: "string"
-          enum:
-          - "available"
-          - "pending"
-          - "sold"
-          default: "available"
         collectionFormat: "multi"
       responses:
         200:
@@ -154,7 +149,7 @@ paths:
         - "write:pets"
         - "read:pets"
       deprecated: true
-  /pet/{petId}:
+  /pet/{pet_id}:
     get:
       tags:
       - "pet"
@@ -165,7 +160,7 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - name: "petId"
+      - name: "pet_id"
         in: "path"
         description: "ID of pet to return"
         required: true
@@ -194,7 +189,7 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - name: "petId"
+      - name: "pet_id"
         in: "path"
         description: "ID of pet that needs to be updated"
         required: true
@@ -231,7 +226,7 @@ paths:
         in: "header"
         required: false
         type: "string"
-      - name: "petId"
+      - name: "pet_id"
         in: "path"
         description: "Pet id to delete"
         required: true
@@ -246,7 +241,7 @@ paths:
       - petstore_auth:
         - "write:pets"
         - "read:pets"
-  /pet/{petId}/uploadImage:
+  /pet/{pet_id}/uploadImage:
     post:
       tags:
       - "pet"
@@ -258,7 +253,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "petId"
+      - name: "pet_id"
         in: "path"
         description: "ID of pet to update"
         required: true
@@ -582,22 +577,18 @@ definitions:
       id:
         type: "integer"
         format: "int64"
-      petId:
+      pet_id:
         type: "integer"
         format: "int64"
       quantity:
         type: "integer"
         format: "int32"
-      shipDate:
+      ship_date:
         type: "string"
         format: "date-time"
       status:
         type: "string"
         description: "Order Status"
-        enum:
-        - "placed"
-        - "approved"
-        - "delivered"
       complete:
         type: "boolean"
         default: false
@@ -621,9 +612,9 @@ definitions:
         format: "int64"
       username:
         type: "string"
-      firstName:
+      first_name:
         type: "string"
-      lastName:
+      last_name:
         type: "string"
       email:
         type: "string"
@@ -631,7 +622,7 @@ definitions:
         type: "string"
       phone:
         type: "string"
-      userStatus:
+      user_status:
         type: "integer"
         format: "int32"
         description: "User Status"
@@ -651,7 +642,7 @@ definitions:
     type: "object"
     required:
     - "name"
-    - "photoUrls"
+    - "photo_urls"
     properties:
       id:
         type: "integer"
@@ -661,7 +652,7 @@ definitions:
       name:
         type: "string"
         example: "doggie"
-      photoUrls:
+      photo_urls:
         type: "array"
         xml:
           name: "photoUrl"
@@ -678,10 +669,6 @@ definitions:
       status:
         type: "string"
         description: "pet status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
     xml:
       name: "Pet"
   ApiResponse:
