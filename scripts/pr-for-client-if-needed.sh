@@ -30,7 +30,7 @@ git config --global user.email "kgmyshin82@gmai.com"
 
 # 更新
 git checkout -b pojo_update_$HASH
-./gradlew app:updateJson
+./app/scripts/generate.sh
 
 # commit, push and pull-request
 cd app

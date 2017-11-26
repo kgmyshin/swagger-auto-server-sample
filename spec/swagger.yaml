@@ -652,9 +652,6 @@ definitions:
       name:
         type: "string"
         example: "doggie"
-      sex:
-        type: "integer"
-        format: "int64"
       photo_urls:
         type: "array"
         xml:
