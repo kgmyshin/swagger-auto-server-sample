@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/swagger-auto-server-sample
     docker:
-      - image: sitapati/docker-java-node:latest
+      - image: joakimbeng/java-node
     steps:
       - checkout
       - restore_cache:
