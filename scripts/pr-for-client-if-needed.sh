@@ -9,7 +9,7 @@ cd swagger-auto-android-sample
 
 #差分チェック TODO: パスを正しく
 wget https://kgmyshin.github.io/swagger-auto-server-sample/swagger.json swagger.json
-DIFF_COUNT=$(diff swagger.json app/scripts/swagger.json | wc -l)
+DIFF_COUNT=$(diff swagger.json ./app/scripts/swagger.json | wc -l)
 echo $DIFF_COUNT
 if [ $DIFF_COUNT -eq 0 ]; then
   echo "更新なし"
@@ -24,7 +24,7 @@ mkdir -p ~/bin/$HUB_VERSION
 if [[ ! -e ~/bin/${HUB_VERSION}/hub ]]; then
   wget --no-verbose https://github.com/github/hub/releases/download/v${HUB_VERSION}/hub-linux-amd64-${HUB_VERSION}.tgz -O h.tgz && tar xzf h.tgz && mv hub-linux-amd64-${HUB_VERSION}/bin/hub ~/bin/${HUB_VERSION}/;
 fi
-echo "export PATH=~/bin/$HUB_VERSION/:$PATH" >> $BASH_ENV
+export PATH=~/bin/$HUB_VERSION/:$PATH
 git config --global user.name "kgmyshin"
 git config --global user.email "kgmyshin82@gmai.com"
 
