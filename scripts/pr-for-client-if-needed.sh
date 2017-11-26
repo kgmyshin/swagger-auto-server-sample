@@ -9,11 +9,13 @@ cd swagger-auto-android-sample
 
 #差分チェック TODO: パスを正しく
 wget https://kgmyshin.github.io/swagger-auto-server-sample/swagger.json swagger.json
-DIFF_COUNT=$(diff newest.json swagger.json | wc -l)
+DIFF_COUNT=$(diff swagger.json app/scripts/swagger.json | wc -l)
 echo $DIFF_COUNT
 if [ $DIFF_COUNT -eq 0 ]; then
+  echo "更新なし"
   exit 0
 fi
+echo "更新あり"
 rm swagger.json
 
 # HUBコマンドセットアップ
@@ -26,9 +28,9 @@ echo "export PATH=~/bin/$HUB_VERSION/:$PATH" >> $BASH_ENV
 git config --global user.name "kgmyshin"
 git config --global user.email "kgmyshin82@gmai.com"
 
-# 更新: TODO
+# 更新
 git checkout -b pojo_update_$HASH
-echo aa >> a.txt
+./gradlew app:updateJson
 
 # commit, push and pull-request
 git add .
