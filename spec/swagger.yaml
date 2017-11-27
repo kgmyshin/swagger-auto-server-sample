@@ -642,7 +642,6 @@ definitions:
     type: "object"
     required:
     - "name"
-    - "photo_urls"
     properties:
       id:
         type: "integer"
